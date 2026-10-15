@@ -1,0 +1,76 @@
+:root {
+  font-family: Inter, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #e2e8f0;
+  background: #020817;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(139, 92, 246, 0.22), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.18), transparent 26%),
+    #020817;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+main {
+  display: block;
+  margin:2vw auto;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Hero layout is fully handled in App.css */
+
+.hero-image {
+  display: block;
+  width: 100%;
+  max-width: 1100px;   /* plus grande qu'avant */
+  height: auto;
+  margin: 0 auto;      /* centre l'image */
+  border-radius: 24px;
+  box-shadow:
+    0 0 0 1px rgba(99, 179, 255, 0.25),
+    0 20px 60px rgba(37, 99, 235, 0.35);  /* halo bleu pour la faire ressortir */
+}
