@@ -5,67 +5,69 @@ import { Mail, MessageCircle, Menu, X } from "lucide-react";
 
 const navItems = [
   { label: 'Accueil', href: '#home' },
-  { label: 'À propos', href: '#about' },
   { label: 'Projets', href: '#projects' },
+  { label: 'À propos', href: '#experience' },
   // { label: 'Expérience', href: '#experience' },
   // { label: 'Contact', href: '#contact' },
 ]
 
-const stats = [
-  { value: '6+', label: 'ans d’expérience' },
-  { value: '22', label: 'projets livrés' },
-  { value: '99%', label: 'clients satisfaits' },
-]
+// const stats = [
+//   { value: '6+', label: 'ans d’expérience' },
+//   { value: '22', label: 'projets livrés' },
+//   { value: '99%', label: 'clients satisfaits' },
+// ]
 
-const skills = ['React', 'TypeScript', 'Node.js','MySQL','PostgreSQL', 'Next.js', 'UI/UX', 'Figma', 'API REST','Tailwind']
+// const skills = ['React', 'TypeScript', 'Node.js','MySQL','PostgreSQL', 'Next.js', 'UI/UX', 'Figma', 'API REST','Tailwind']
 
+const GithubIcon = ({ size = 20, className = "", ...props }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 16 16"
+    fill="currentColor"
+    className={className}
+    aria-hidden="true"
+    {...props}
+  >
+    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+  </svg>
+);
 const projects = [
   {
-    title: 'AIRANDEV',
+    title: <a href="https://www.airandev.com/fr">AIRANDEV</a>,
     description: 'Plateforme d\'automatisation à l\'aide de l\'intelligence Artificiele pour la gestion d\'entreprise et des tâches répétitives.',
-    stack: ['React + VITE','Payload(framework)','json', 'Next.js','TailwindCss'],
-    accent: '#000',
+    stack: ['React + VITE','Payload(framework)','Graphql','json', 'Next.js','TailwindCss'],
+    accent: 'violet',
   },
   {
-    title: 'Pulse Studio',
-    description: 'Plateforme de gestion de contenus pour des studios créatifs avec workflows visuels et publication multi-support.',
-    stack: ['Next.js', 'PostgreSQL', 'Auth'],
+    title: 'Mon portfolio',
+    description: 'Portfolio en ligne de présentation de mes compétences, projets et expériences professionnelles.',
+    stack: ['React + VITE'],
     accent: 'teal',
   },
   {
-    title: 'Luma Health',
-    description: 'Application de suivi de santé avec tableaux de bord patients, rappels et parcours de soins personnalisés.',
-    stack: ['React', 'Firebase', 'Charts'],
+    title: 'e-commerce',
+    description: 'Boutique en ligne pour la vente de produits avec un système de paiement sécurisé(stripe) et une interface administrateus,card, panier et gestion des commandes.',
+    stack: ['React + VITE','stripe','API REST','express.js', 'Charts','TailwindCss',],
     accent: 'amber',
   },
 ]
 
 const experience = [
   {
-    period: '2022 — Aujourd’hui',
+    period: '2022 — 2024',
     role: 'Lead Front-End Developer',
-    company: 'Northstar Labs',
-    details: 'Dirige la conception et le développement d’interfaces SaaS complexes orientées performance et UX.',
+    company: 'RandevTeam',
+    details: 'correction des bugs,conception et le développement d’interfaces SaaS complexes orientées performance et UX.',
   },
   {
-    period: '2020 — 2022',
-    role: 'Senior Product Designer',
-    company: 'Aster Studio',
-    details: 'Conception de produits digitaux, design systems et optimisation d’outils de croissance pour startups.',
-  },
-  {
-    period: '2018 — 2020',
-    role: 'Front-End Developer',
-    company: 'Miroir Digital',
-    details: 'Développement de sites vitrines, landing pages et applications internes pour différents secteurs.',
+    period: '2024 — aujourd\'hui',
+    role: 'Senior full-stack Developer',
+    company: 'RandevTeam',
+    details: 'Conception de logique du site web, design UML et optimisation d’outils de croissance pour startups.\n Développement de fonctionnalités front-end et back-end, intégration d’API et gestion de bases de données jusqu\'à mise en ligne(DevOpps)',
   },
 ]
 
-const socials = [
-  { label: 'GitHub', href: 'https://github.com/fanomezantsoajoseph14-dev', title: 'github.com/fanomezantsoajoseph-dev' },
-  // { label: 'LinkedIn', href: 'https://linkedin.com', title: 'linkedin.com/in/alex' },
-  // { label: 'Dribbble', href: 'https://dribbble.com', title: 'dribbble.com/alex' },
-]
 
 function App() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -112,66 +114,10 @@ function App() {
           <HeroBanner />
         </section>
 
-        <section className="hero" id="home">
-          <div className="hero-copy">
-            <p className="eyebrow">Développeur full-stack</p>
-            <h1>FANOMEZANTSOA Sarobidy Joseph</h1>
-            <p className="lead">
-              Je conçois et développe des site web modernes pour les marques qui veulent faire une impression durable.
-            </p>
-
-            <div className="hero-actions">
-              <a className="button button-primary" href="#projects">
-                Voir mes projets
-              </a>
-              <a className="button button-secondary" href="#about">
-                En savoir plus
-              </a>
-            </div>
-
-            <div className="stats-grid" aria-label="Quelques statistiques">
-              {stats.map((stat) => (
-                <div className="stat-card" key={stat.label}>
-                  <strong>{stat.value}</strong>
-                  <span>{stat.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="hero-panel" aria-label="Résumé professionnel">
-            <div className="profile-card">
-              <div>
-                <p className="small-label">Disponible pour missions</p>
-                {/* <h2>Joseph FANOMEZANTSOA</h2> */}
-              </div>
-            </div>
-
-            <div className="info-box">
-              <span className="dot"></span>
-              <div>
-                <small>Disponibilité</small>
-                <strong>Ouvert à de nouveaux projets</strong>
-              </div>
-            </div>
-
-            <div className="mini-grid">
-              <div>
-                <small>Spécialité</small>
-                <strong>UX / UI</strong>
-              </div>
-              <div>
-                <small>Localisation</small>
-                <strong>Antananarivo, Madagascar</strong>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="section" id="about">
+        {/* <section className="section" id="about">
           <div className="section-heading">
             <p className="eyebrow">À propos</p>
-            <h2>Je transforme des idées en produits web élégants et utiles.</h2>
+            <h2>Je transforme des idées en produits web élégant et proffesionnel.</h2>
           </div>
 
           <div className="about-grid">
@@ -194,11 +140,11 @@ function App() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section className="section" id="projects">
           <div className="section-heading">
-            <p className="eyebrow">Portfolio</p>
+            <p className="eyebrow">Projets réalisés</p>
             <h2>Quelques réalisations récentes.</h2>
           </div>
 
@@ -206,7 +152,7 @@ function App() {
             {projects.map((project) => (
               <article className={`project-card ${project.accent}`} key={project.title}>
                 <div className="project-visual">
-                  <span className="visual-pill">Case study</span>
+                  <span className="visual-pill">site web</span>
                 </div>
                 <div className="project-body">
                   <h3>{project.title}</h3>
@@ -221,7 +167,6 @@ function App() {
             ))}
           </div>
         </section>
-
         <section className="section" id="experience">
           <div className="section-heading">
             <p className="eyebrow">Expérience</p>
@@ -250,6 +195,14 @@ function App() {
             </div>
 
             <div className="contact-links">
+              <a
+                href="https://github.com/fanomezantsoajoseph-dev"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <GithubIcon className="contact-icon github" size={20} />
+                <span>github.com/fanomezantsoajoseph-dev</span>
+              </a>
               <a href="mailto:fanomezantsoajoseph14@gmail.com">
                 <Mail className="contact-icon" size={20} />
                 <span>fanomezantsoajoseph14@gmail.com</span>
@@ -265,16 +218,12 @@ function App() {
             </div>
 
             <div className="social-links">
-              {socials.map((social) => (
-                <a key={social.label} href={social.href} target="_blank" rel="noreferrer">
-                  {social.label}
-                </a>
-              ))}
             </div>
           </div>
         </section>
       </main>
-      <footer className="footer">© 2026 Joseph FANOMEZANTSOA — construit avec React</footer>
+
+      <footer className="footer">© 2026 Joseph FANOMEZANTSOA — construit avec React+VITE </footer>
     </div>
   )
 }

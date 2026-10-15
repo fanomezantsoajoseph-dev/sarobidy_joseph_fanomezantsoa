@@ -100,12 +100,92 @@ const NodeLogo = () => (
   </svg>
 );
 
-const LaravelLogo = () => (
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="1.6" strokeLinejoin="round" aria-hidden="true">
-    <path d="M2 5l5 3v6l-5-3zM7 8l5-3 5 3-5 3zM7 14l5 3v5l-5-3zM12 17l5-3V8M17 8l5-3v6l-5 3z" />
+const LaravelLogo = ({ size = 30, color = "#FF2D20" }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke={color}
+    strokeWidth="1.6"
+    strokeLinejoin="round"
+    strokeLinecap="round"
+    aria-hidden="true"
+  >
+    {/* Contour du cube */}
+    <path d="M12 2l9 5v10l-9 5-9-5V7z" />
+    {/* Arêtes intérieures */}
+    <path d="M3 7l9 5 9-5M12 12v10" />
   </svg>
 );
+const PostgresLogo = ({ size = 30, color = "#336791" }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke={color}
+    strokeWidth="1.6"
+    strokeLinejoin="round"
+    strokeLinecap="round"
+    aria-hidden="true"
+  >
+    {/* Dessus du cylindre */}
+    <ellipse cx="12" cy="5" rx="8" ry="3" />
+    {/* Côtés et fond */}
+    <path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5" />
+    {/* Séparation intermédiaire */}
+    <path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" />
+  </svg>
+);
+const PythonLogo = ({ size = 30, blue = "#3776AB", yellow = "#FFD43B" }) => {
+  const serpent =
+    "M8 3H12A3 3 0 0 1 15 6V9A2 2 0 0 1 13 11H9A2 2 0 0 0 7 13V15H5A2 2 0 0 1 3 13V6A3 3 0 0 1 6 3Z";
 
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      strokeWidth="1.6"
+      strokeLinejoin="round"
+      strokeLinecap="round"
+      aria-hidden="true"
+    >
+      {/* Serpent bleu (haut gauche) */}
+      <g stroke={blue}>
+        <path d={serpent} />
+        <circle cx="11" cy="6.2" r="0.6" fill={blue} />
+      </g>
+      {/* Serpent jaune : le même, tourné de 180° */}
+      <g stroke={yellow} transform="rotate(180 12 12)">
+        <path d={serpent} />
+        <circle cx="11" cy="6.2" r="0.6" fill={yellow} />
+      </g>
+    </svg>
+  );
+};
+const JavaScriptLogo = ({ size = 30, color = "#F7DF1E" }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke={color}
+    strokeWidth="1.6"
+    strokeLinejoin="round"
+    strokeLinecap="round"
+    aria-hidden="true"
+  >
+    {/* Square */}
+    <rect x="2.5" y="2.5" width="19" height="19" rx="2.5" />
+    {/* J */}
+    <path d="M11.5 10v5.5a1.8 1.8 0 0 1-1.8 1.8c-.7 0-1.2-.3-1.6-.9" />
+    {/* S */}
+    <path d="M19 10.2c-.5-.5-1.2-.8-2-.8-1.1 0-1.9.6-1.9 1.5 0 2 4 1.2 4 3.3 0 1-.9 1.8-2.1 1.8-.9 0-1.6-.3-2.1-.9" />
+  </svg>
+);
 const BracesLogo = () => (
   <span className="tech-braces">{"{ }"}</span>
 );
@@ -133,12 +213,15 @@ const GitLogo = () => (
 const technologies = [
   { name: "React.js", logo: <ReactLogo /> },
   { name: "Next.js", logo: <NextLogo /> },
+  { name: "JavaScript", logo: <JavaScriptLogo /> },
   { name: "Express.js", logo: <ExpressLogo /> },
+  { name: "Python", logo: <PythonLogo /> },
   { name: "Node.js", logo: <NodeLogo /> },
   { name: "Laravel", logo: <LaravelLogo /> },
   { name: "REST API", logo: <BracesLogo /> },
   { name: "MySQL", logo: <MysqlLogo /> },
   { name: "Git/GitHub", logo: <GitLogo /> },
+  { name: "PostgreSql", logo: <PostgresLogo /> },
 ];
 
 const projects = [
@@ -165,10 +248,11 @@ const projects = [
 ];
 
 const highlights = [
-  "UI responsive",
+  "UI User Interface",
+  "UX User Expérience",
   "Architecture moderne",
   "API sécurisées",
-  "Expérience utilisateur",
+  "Modélisation UML"
 ];
 
 /* ---------- Composant ---------- */
@@ -200,8 +284,7 @@ export default function HeroBanner() {
             </h1>
 
             <p className="hb-subtitle">
-              Conseption et développement des solutions web sur mésure et c'est vous qui décide le prix 
-              {/* <b className="hb-bullet" /> */}
+              Conseption et développement des solutions web sur mésure selon vos besoins. 
             </p>
 
             <div className="hb-intro">
@@ -210,7 +293,7 @@ export default function HeroBanner() {
               </span>
               <span className="hb-intro-bar" />
               <p>
-                UX/UI Applications web performantes,
+                UX/UI Applications web responsives,
                 modernes et adaptées à tous les écrans. 
               </p>
             </div>
@@ -249,7 +332,7 @@ export default function HeroBanner() {
         <div className="hb-section-title">
           <FolderIcon size={36} stroke="#22b8f0" />
           <span className="hb-section-bar" />
-          <h2>MES PROJETS</h2>
+          <h2>TYPES DE PROJETS</h2>
         </div>
 
         <div className="hb-projects">
